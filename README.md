@@ -29,6 +29,12 @@ Structure:
 <img width="723" alt="image" src="https://github.com/user-attachments/assets/d48ad50e-e0d2-4c25-b998-455eeaa1a9c7">
 
 
+## DB Schema
+
+![db_schema_Group2_CIS400](https://github.com/user-attachments/assets/29c4b94e-6e33-4884-9b5f-4a8e22ae504d)
+
+
+
 
 
 
