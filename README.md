@@ -26,6 +26,9 @@ Detailed Description of Data Architecture, explaining data sources, data process
 Overview: Our data architecture is driven by external sources, RateMDs and Healthgrade. From these sources, we can use the bottom-up approach to structure the data architecture for this project. The diagram represents the structure of how the data is collected, processed, stored, and retrieved.
 Structure: 
 
+<img width="723" alt="image" src="https://github.com/user-attachments/assets/d48ad50e-e0d2-4c25-b998-455eeaa1a9c7">
+
+
 
 
 
