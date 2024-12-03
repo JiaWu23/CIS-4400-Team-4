@@ -12,22 +12,18 @@ Cost:  The project's anticipated cost includes a number of essential factors, fo
 
 Risks: One of the project's risks is the possibility of bias in the ratings, since user reviews might not always reflect an unbiased evaluation of a healthcare provider's performance. Individual expectations and personal experiences can have a significant impact on ratings and make it difficult to accurately represent a doctor's overall quality of care. To counter this, the platform will use algorithms to identify and flag anomalies in the reviews, like extreme ratings or irregular feedback patterns. Moreover, by offering users in-depth analyses of ratings across different dimensions (e.g., helpfulness, bedside manner), users will have a more nuanced perspective, which will help to lessen the impact of biased ratings.
 
+# Information Architechture:
+
+![image](https://github.com/user-attachments/assets/f3d18cde-b064-4f2d-aada-35d6f0dba4ad)
+
+An Overview of the Data-Processing Pipeline The diagram portrays two information amalgamations, rating data for the specialty of Data and Census Data, feeding information into a single centralised data warehouse. First and foremost, in the stage of Gathering, raw information gets captured from the two mentioned different data sources. Further on, there is the Cleaning part for eliminating inconsistencies, incorrect, or redundant data elements. Finally, there was also a Reformat part towards structuring. Deeper in the process, the separation happens: the reformatted Rating data undergoes a Transform phase, where this data is made ready for special analytical needs, whereas both datasets continue with the Process stage, where computations and enhancements are made. The outputs of the two data streams are combined in a Consolidate phase into one unified dataset. The consolidated data is finally loaded into the data warehouse, which is the central repository for storage, analysis, and reporting. This structured pipeline ensures high-quality integrated data for decision-making and analytics.
+
+
 # Data Architecture
-
-Overview: Define the overall structure and design of the data within the project, including how data is collected, processed, stored, and retrieved.
- 
-Structure:
-Define data integration points, especially if data comes from multiple sources.
-Ensure the architecture supports data consistency, integrity, and scalability.
-Deliverables:
-Data Architecture Diagram showcasing data flow and storage mechanisms.
-Detailed Description of Data Architecture, explaining data sources, data processing workflows, and data storage solutions.
-
-Overview: Our data architecture is driven by external sources, RateMDs and Healthgrade. From these sources, we can use the bottom-up approach to structure the data architecture for this project. The diagram represents the structure of how the data is collected, processed, stored, and retrieved.
-Structure: 
 
 <img width="723" alt="image" src="https://github.com/user-attachments/assets/d48ad50e-e0d2-4c25-b998-455eeaa1a9c7">
 
+The data architecture for this project is a bottom-up approach, amalgamating external sources like RateMDs and Healthgrade for the strong collection and processing of data. At the initial stages, raw data from these sources is collected and stored in a Temporary Storage system, which will serve as a holding area for subsequent processing. This will ensure that the raw data has been consolidated while ensuring consistency and integrity in that respect. This is then transformed from the temporary storage and moved into a Data Mart, optimized for faster retrieval and analytics. Data marts represent a central hub where cleaned and processed data is formatted for particular analysis or business needs. Finally, the data goes to the Data Visualization layer, where insights are displayed in actionable forms, such as dashboards or reports. It is an architecture that assures scalability, integrity, and efficiency in retrieval for seamless transition from raw data collection to actionable insight.
 
 
 ## DB Schema
