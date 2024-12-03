@@ -12,4 +12,20 @@ Cost:  The project's anticipated cost includes a number of essential factors, fo
 
 Risks: One of the project's risks is the possibility of bias in the ratings, since user reviews might not always reflect an unbiased evaluation of a healthcare provider's performance. Individual expectations and personal experiences can have a significant impact on ratings and make it difficult to accurately represent a doctor's overall quality of care. To counter this, the platform will use algorithms to identify and flag anomalies in the reviews, like extreme ratings or irregular feedback patterns. Moreover, by offering users in-depth analyses of ratings across different dimensions (e.g., helpfulness, bedside manner), users will have a more nuanced perspective, which will help to lessen the impact of biased ratings.
 
+# Data Architecture
+
+Overview: Define the overall structure and design of the data within the project, including how data is collected, processed, stored, and retrieved.
+ 
+Structure:
+Define data integration points, especially if data comes from multiple sources.
+Ensure the architecture supports data consistency, integrity, and scalability.
+Deliverables:
+Data Architecture Diagram showcasing data flow and storage mechanisms.
+Detailed Description of Data Architecture, explaining data sources, data processing workflows, and data storage solutions.
+
+Overview: Our data architecture is driven by external sources, RateMDs and Healthgrade. From these sources, we can use the bottom-up approach to structure the data architecture for this project. The diagram represents the structure of how the data is collected, processed, stored, and retrieved.
+Structure: 
+
+
+
 
