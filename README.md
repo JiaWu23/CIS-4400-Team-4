@@ -30,7 +30,29 @@ The data architecture for this project is a bottom-up approach, amalgamating ext
 
 ![db_schema_Group2_CIS400](https://github.com/user-attachments/assets/29c4b94e-6e33-4884-9b5f-4a8e22ae504d)
 
+# Technical Architechture 
 
+![image](https://github.com/user-attachments/assets/bcdd9e44-b5cf-4f0a-8dc8-69ac63b552ba)
+
+This diagram represents an end-to-end data pipeline workflow, having MongoDB as the source data repository. The data is extracted using Python, which allows for efficient data retrieval and preprocessing. The preprocessed data is then moved to Azure Blob Storage, a scalable cloud storage solution, for temporary holding purposes. Thence, the data is loaded into Snowflake, a cloud-based data warehouse, for advanced querying and analysis. Using dbt (the data build tool), SQL-based transformations clean, model, and set the data in a posture to be visualized. Finally, this transformed and structured data is taken up in Tableau, where interactive visualizations, dashboards, and reports can be made for actionable insights. This pipeline constitutes an efficient ELT (Extract, Load, Transform) process designed for scalability and ease of analysis.
+
+# Result
+
+![image](https://github.com/user-attachments/assets/496b34d7-d90a-42a0-91aa-696bbf022a03)
+
+This bar chart shows the number of professionals in different medical specialties. The most populous specialty is "family-gp", comprising 58,794 professionals, way ahead of the rest. "Dentists" and "nurse-practitioners" follow, having 27,631 and 22,906 respectively, showing their widespread presence. Specialties such as "internist-geriatrician" and "psychologist" also hold substantial numbers, while fields like "psychiatrist" and "orthopedics-sports" have fewer professionals, with 5,717 and 5,239 respectively. This would tend to indicate that general practitioners and dental professionals are in high demand, as would be expected from general healthcare needs, whereas psychiatry and orthopedics might be considered more specialized fields.
+
+![image](https://github.com/user-attachments/assets/4502fca3-0d3e-46e2-974b-35a59292e984)
+
+This heat map shows the distribution of doctors by their acceptance and verification status across months, which also includes categories like "Accepting & Verified," "Accepting Only," "Verified Only," and "Neither." A large number of doctors belonged to the category "Accepting & Verified," which is depicted here with a lighter green color tone, while the counts run up to 239,211. This suggests a strong concordance of acceptance and verification, and is likely to be doctors who are active and at least to the standards for verification. Other categories, such as "Neither" and "Accepting Only", contain far fewer doctors, represented by darker shades, indicating a smaller subset of doctors without verification or not currently taking patients. This bar plot shows that most of the doctors are in the "Accepting & Verified" category, indicating a significance within the dataset or probably indicating a higher demand for verified and accepting practitioners.
+
+![image](https://github.com/user-attachments/assets/cf38e4f1-801e-4c5d-866f-29e507530360)
+
+This line chart shows the trend of appointments over time, categorized by medical specialties. There is a large variation in the count of appointments across different specialties, with some peaks corresponding to dermatology and family general practitioners. These spikes hint at higher demand for these services at specific times, possibly due to seasonal factors or public health trends. Other specialties, including acupuncture and audiology, show relatively stable and low appointment trends. This chart really points out the dynamism in healthcare demand and how periodic surges occur for some specialties, while others remain constant. This can be important in resource and workforce planning in health facilities.
+
+![image](https://github.com/user-attachments/assets/b9a7c3d5-1775-491d-a523-7ec6011fb4e3)
+
+This pie chart illustrates the Distribution of Doctors by Acceptance Status, grouping whether the doctors are currently accepting new patients. According to this chart, 70.89% accept new patients ("True") and 29.11% are not accepting new patients ("False"). This visualization indicates a sense of the availability of healthcare providers to accommodate new patients-a critical metric for assessing healthcare accessibility in a community. The large majority of physicians accepting new patients are indicative of a generally good capacity for patient intake; however, the almost 30% not accepting might suggest limited access to certain specialties or regions. This information can be useful to healthcare policymakers, administrators, and patients when planning and making decisions.
 
 
 
