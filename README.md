@@ -36,6 +36,24 @@ The data architecture for this project is a bottom-up approach, amalgamating ext
 
 This diagram represents an end-to-end data pipeline workflow, having MongoDB as the source data repository. The data is extracted using Python, which allows for efficient data retrieval and preprocessing. The preprocessed data is then moved to Azure Blob Storage, a scalable cloud storage solution, for temporary holding purposes. Thence, the data is loaded into Snowflake, a cloud-based data warehouse, for advanced querying and analysis. Using dbt (the data build tool), SQL-based transformations clean, model, and set the data in a posture to be visualized. Finally, this transformed and structured data is taken up in Tableau, where interactive visualizations, dashboards, and reports can be made for actionable insights. This pipeline constitutes an efficient ELT (Extract, Load, Transform) process designed for scalability and ease of analysis.
 
+# Transformation To Snowflake:
+
+![image](https://github.com/user-attachments/assets/3386fd26-e898-4e1c-ae4a-de57455d11bc)
+
+This SQL script, designed for a healthcare analytics context, creates a materialized table within the SPECIALITYSCHEMA schema. It uses a Common Table Expression (CTE) named Location_CTE to transform and extract structured data from a JSON array stored in the DOCTOR_LOCATIONS column of the ROW_LOCATION table. The LATERAL FLATTEN function unpacks the nested JSON objects, and the PARSE_JSON function converts them into a format suitable for querying. The script selects specific fields, including id (converted to LOCATION_ID as an integer), location.category (mapped to CATEGORY as a string), and geographic details like latitude and longitude (both converted to floats). These extracted and transformed fields are then outputted as a structured dataset by the SELECT * FROM Location_CTE statement, making the data ready for downstream analytics or integration with other data models.
+
+![image](https://github.com/user-attachments/assets/30316bde-47bb-4add-9fb3-4611c32470b7)
+
+This SQL script builds a comprehensive date dimension table (dim_date) to support time-based analytics by extracting and transforming temporal data from the ROW_LOCATION table in the SPECIALITYSCHEMA schema. The process begins with the raw_date_cte, which converts the CREATED field into a standardized timestamp (ISO_TIMESTAMP_EST) using TO_TIMESTAMP. The second CTE, date_cte, derives a variety of date and time attributes from this timestamp, including a unique date_id in YYYYMMDDHH format, numeric values for the year, month, day, hour, quarter, and week, and textual representations for the month name and day name. It also computes day_of_week, week_of_month, and week_of_year for more granular time segmentation. The final output consolidates these attributes into a structured dataset that is essential for efficient temporal filtering, aggregation, and trend analysis in reporting and analytics workflows.
+
+![image](https://github.com/user-attachments/assets/71e71a8f-d229-47c8-88eb-8df5005c9551)
+
+This SQL script creates a doctor dimension table (dim_doctor) in the SPECIALITYSCHEMA schema by using a Common Table Expression (CTE) named Doctor_CTE. It extracts and transforms data from the ROW_LOCATION table in the CIS4400HEALTH.SPECIALITYSCHEMA schema. The CTE selects key attributes, including ID (renamed as DOCTOR_ID), _ID (renamed as CLINIC_ID), and FULL_NAME_SPECIALTY (renamed as FULL_NAME_OF_SPECIALITY), to structure the dataset meaningfully. The final SELECT * statement outputs the transformed dataset, making it suitable for use in analytics or reporting workflows, specifically to analyze doctors, their associated clinics, and their specialties.
+
+![image](https://github.com/user-attachments/assets/ef5aac6a-1f79-40fa-9936-74e8320ffc8a)
+
+This SQL script creates a fact table (fact_clinic_ratings) in the SPECIALITYSCHEMA schema, designed to store detailed location-based data for healthcare analysis. Using a Common Table Expression (CTE) named Location_CTE, the script extracts and transforms nested JSON data from the DOCTOR_LOCATIONS column in the ROW_LOCATION table. The LATERAL FLATTEN function unpacks the nested JSON, while PARSE_JSON parses it into a queryable structure. Key attributes are selected, including LOCATION_ID, CATEGORY, ADDRESS, geographical coordinates (LATITUDE, LONGITUDE), and hierarchical location details such as CITY_ID, PROVINCE_NAME, and COUNTRY_NAME. The final SELECT * retrieves the processed data, ready for downstream analysis and integration into healthcare reporting systems. This table is instrumental in analyzing clinic ratings across various geographical hierarchies and categories.
+
 # Result
 
 ![image](https://github.com/user-attachments/assets/496b34d7-d90a-42a0-91aa-696bbf022a03)
